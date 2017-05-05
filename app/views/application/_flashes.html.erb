@@ -1,7 +1,18 @@
-<% if flash.any? %>
-  <div class="flashes">
-    <% user_facing_flashes.each do |key, value| -%>
-      <div class="flash-<%= key %>"><%= value %></div>
-    <% end -%>
+<% if flash.present? %>
+  <div id='flash'>
+   <script>
+     <% if flash[:success] %>
+       var $toastContent = $('<span><%= flash[:success] %></span>');
+       toastr.success($toastContent)
+     <% end %>
+     <% if flash[:info] %>
+       var $toastContent = $('<span><%= flash[:info] %></span>');
+       toastr.info($toastContent)
+     <% end %>
+     <% if flash[:error] %>
+       var $toastContent = $('<span><%= flash[:error] %></span>');
+       toastr.error($toastContent)
+     <% end %>
+   </script>
   </div>
 <% end %>

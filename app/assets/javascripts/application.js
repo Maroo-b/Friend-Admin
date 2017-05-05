@@ -13,4 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require materialize
+//= require toastr
 //= require_tree .

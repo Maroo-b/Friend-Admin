@@ -10,7 +10,7 @@
 
   <body>
     <%= render "layouts/navigation" %>
-    <%= render "flashes" %>
+    <%= render "flashes", flash: flash %>
     <div class="container">
       <%= yield %>
     </div>
