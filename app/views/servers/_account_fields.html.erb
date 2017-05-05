@@ -1,0 +1,19 @@
+<% @id = Time.now.to_i %>
+<div class="row account-group">
+  <div class="input-field col s2">
+    <%= label_tag "account_type_#{@id}", "Account type" %>
+    <%= text_field_tag "accounts_data[][account_type]", account.account_type, id: "account_type_#{@id}" %>
+  </div>
+  <div class="input-field col s2">
+    <%= label_tag "user_#{@id}", "User" %>
+    <%= text_field_tag "accounts_data[][user]", account.user, id: "user_#{@id}"%>
+  </div>
+  <div class="input-field col s2">
+    <%= label_tag "password_#{@id}", "Password" %>
+    <%= text_field_tag "accounts_data[][password]", account.password, id: "password_#{@id}" %>
+  </div>
+
+  <div class="input-field col s2">
+    <a href="#" class="remove-account"><i class="material-icons">clear</i></a>
+  </div>
+</div>

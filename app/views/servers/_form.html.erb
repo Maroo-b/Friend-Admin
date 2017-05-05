@@ -1,0 +1,80 @@
+<%= form_for @server_form do |f| %>
+  <div class="row">
+    <div class="section">
+      <div class="input-field">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+      <div class="input-field">
+        <%= f.label :cpu, "CPU" %>
+        <%= f.text_field :cpu %>
+      </div>
+      <div class="input-field">
+        <%= f.label :ram, "RAM" %>
+        <%= f.text_field :ram %>
+      </div>
+      <div class="input-field">
+        <%= f.label :drive %>
+        <%= f.text_field :drive %>
+      </div>
+      <div class="input-field">
+        <%= f.label :os, "OS" %>
+        <%= f.text_field :os %>
+      </div>
+      <div class="input-field">
+        <%= f.label :os_type, "OS Type" %>
+        <%= f.text_field :os_type %>
+      </div>
+      <div class="input-field">
+        <%= f.label :applications, "Installed Applications" %>
+        <%= f.text_area :applications, cols: 20, rows: 40, class: 'materialize-textarea' %>
+      </div>
+    </div>
+
+    <hr>
+    <h5 class="center-align">IP Addresses</h5>
+    <hr>
+
+    <div id="ip-addresses" class="section">
+      <% if @server_form.ip_addresses_data.blank? %>
+        <%= render partial: 'ip_address_fields', locals: {ip_address: IpAddress.new} %>
+      <% else %>
+        <% @server_form.ip_addresses_data.each do |ip_address| %>
+          <%= render partial: 'ip_address_fields', locals: {ip_address: ip_address } %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <a href="javascript:;" id="addIpAddress" class="valign-wrapper">
+        <i class="material-icons">add_circle</i> Add IP Address
+    </a>
+
+    <hr>
+    <h5 class="center-align">Accounts</h5>
+    <hr>
+
+    <div id="accounts" class="section">
+      <% if @server_form.accounts_data.blank? %>
+        <%= render partial: 'account_fields', locals: {account: Account.new} %>
+      <% else %>
+        <% @server_form.accounts_data.each do |account| %>
+          <%= render partial: 'account_fields', locals: {account: account} %>
+        <% end %>
+      <% end %>
+    </div>
+    <a href="javascript:;" id="addAccount" class="valign-wrapper">
+      <i class="material-icons">add_circle</i> Add Account
+    </a> 
+    <br>
+
+    <%= f.submit class: "waves-effect waves-light btn" %>
+  </div>
+<% end %>
+
+<div style="display: none;" id="new-ip-address-form">
+  <%= render partial: 'ip_address_fields', locals: {ip_address: IpAddress.new} %>
+</div>
+
+<div style="display: none;" id="new-account-form">
+  <%= render partial: 'account_fields', locals: {account: Account.new} %>
+</div>

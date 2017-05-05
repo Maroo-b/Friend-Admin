@@ -1,0 +1,26 @@
+<div class="row ip-address-group">
+  <div class="input-field col s2">
+    <%= label_tag :ip, "IP address" %>
+    <%= text_field_tag "ip_addresses_data[][ip]", ip_address.ip, id: 'ip' %>
+  </div>
+  <div class="input-field col s2">
+    <%= label_tag :network_mask %>
+    <%= text_field_tag "ip_addresses_data[][network_mask]", ip_address.network_mask, id: 'network_mask' %>
+  </div>
+  <div class="input-field col s2">
+    <%= label_tag :network_address %>
+    <%= text_field_tag "ip_addresses_data[][network_address]", ip_address.network_address, id: 'network_address' %>
+  </div>
+  <div class="input-field col s2">
+    <%= label_tag :gateway %>
+    <%= text_field_tag "ip_addresses_data[][gateway]", ip_address.gateway, id: 'gateway' %>
+  </div>
+  <div class="input-field col s2">
+    <%= label_tag :address_type %>
+    <%= text_field_tag "ip_addresses_data[][address_type]", ip_address.address_type, id: 'address_type' %>
+  </div>
+  <div class="input-field col s2">
+    <a href="#" class="remove-ip-address"><i class="material-icons">clear</i></a>
+  </div>
+
+</div>

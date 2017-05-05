@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require materialize
 //= require toastr
+//= require jquery-readyselector
 //= require_tree .
