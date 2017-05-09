@@ -1,0 +1,39 @@
+<%= form_for @server_form do |f| %>
+  <div class="row>"
+    <div class="input-field">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="input-field">
+      <%= f.label :cpu, "CPU" %>
+      <%= f.text_field :cpu %>
+    </div>
+    <div class="input-field">
+      <%= f.label :ram, "RAM" %>
+      <%= f.text_field :ram %>
+    </div>
+    <div class="input-field">
+      <%= f.label :drive %>
+      <%= f.text_field :drive %>
+    </div>
+    <div class="input-field">
+      <%= f.label :os, "OS" %>
+      <%= f.text_field :os %>
+    </div>
+    <div class="input-field">
+      <%= f.label :os_type, "OS Type" %>
+      <%= f.text_field :os_type %>
+    </div>
+    <div class="input-field">
+      <%= f.label :applications, "Installed Applications" %>
+      <%= f.text_area :applications, cols: 20, rows: 40, class: 'materialize-textarea' %>
+    </div>
+
+    <div id="ip-addresses">
+      <%= render partial: 'ip_address_fields' %>
+    </div>
+
+    <a href="javascript:;" id="addIpAddress">Add IP Address</a> 
+  </div>
+  <=% submit_tag "Create", class: "waves-effect waves-light btn" %>
+<% end %>

@@ -1,0 +1,24 @@
+<div class="ip-address-group">
+  <div class="input-field">
+    <%= label_tag "IP Address" %>
+    <%= text_field_tag "ip_addresses[][ip]", ''%>
+  </div>
+  <div class="input-field">
+    <%= label_tag "Network Mask" %>
+    <%= text_field_tag "ip_addresses[][network_mask]", ''%>
+  </div>
+  <div class="input-field">
+    <%= label_tag "Network Address" %>
+    <%= text_field_tag "ip_addresses[][network_address]", ''%>
+  </div>
+  <div class="input-field">
+    <%= label_tag "Gateway" %>
+    <%= text_field_tag "ip_addresses[][gateway]", ''%>
+  </div>
+  <div class="input-field">
+    <%= label_tag "Address Type" %>
+    <%= text_field_tag "ip_addresses[][address_type]", ''%>
+  </div>
+
+  <a href="#" class="remove-ip-address">X</a>
+</div>
