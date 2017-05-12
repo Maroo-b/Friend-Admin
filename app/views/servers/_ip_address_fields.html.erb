@@ -16,8 +16,7 @@
     <%= text_field_tag "ip_addresses_data[][gateway]", ip_address.gateway, id: 'gateway' %>
   </div>
   <div class="input-field col s2">
-    <%= label_tag :address_type %>
-    <%= text_field_tag "ip_addresses_data[][address_type]", ip_address.address_type, id: 'address_type' %>
+    <%= select_tag("ip_addresses_data[][address_type]", options_for_select(IpAddress.address_types.keys, ip_address.address_type), prompt: 'Address Type', class: 'browser-default') %>
   </div>
   <div class="input-field col s2">
     <a href="#" class="remove-ip-address"><i class="material-icons">clear</i></a>
