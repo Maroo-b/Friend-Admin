@@ -1,1 +1,32 @@
-<h3>Servers</h3>
+<h3 class="center-align">Servers</h3>
+<table class="bordered centered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>OS</th>
+      <th>OS Type</th>
+      <th>Internal IP</th>
+      <th>External IP</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @servers.each do |server| %>
+      <tr>
+        <td><%= server.name %></td>
+        <td><%= server.os %></td>
+        <td><%= server.os_type %></td>
+        <td><%= simple_format(server.ip_addresses.internal.map(&:ip).join("\n")) %></td>
+        <td><%= simple_format(server.ip_addresses.external.map(&:ip).join("\n")) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="center-align">
+  <%= paginate @servers %>
+</div>
+
+ <div class="fixed-action-btn horizontal">
+    <%= link_to new_server_path, class: "btn-floating btn-large red" do %>
+      <i class="large material-icons">add</i>
+    <% end %>
+ </div>

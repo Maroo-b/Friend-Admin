@@ -3,7 +3,7 @@ class ServersController < ApplicationController
   before_action :authorize
 
   def index
-    @servers = Server.all
+    @servers = Server.includes(:ip_addresses).page params[:page]
   end
 
   def new

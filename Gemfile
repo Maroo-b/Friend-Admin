@@ -13,6 +13,7 @@ gem 'materialize-sass'
 # Use PostgreSQL as the database for Active Record
 gem 'pg'
 gem 'figaro' # manage secret keys
+gem 'kaminari'# enable pagination
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
