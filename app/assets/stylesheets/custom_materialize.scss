@@ -1,0 +1,5 @@
+@import "materialize/components/color";
+
+.pagination li.active {
+  background-color: map-get($light-blue, "base");
+}
