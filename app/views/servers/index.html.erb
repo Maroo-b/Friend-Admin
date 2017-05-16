@@ -15,8 +15,8 @@
         <td><%= server.name %></td>
         <td><%= server.os %></td>
         <td><%= server.os_type %></td>
-        <td><%= simple_format(server.ip_addresses.internal.map(&:ip).join("\n")) %></td>
-        <td><%= simple_format(server.ip_addresses.external.map(&:ip).join("\n")) %></td>
+        <td><%= display_by_line(server.internal_ip_addresses.map(&:ip)) %></td>
+        <td><%= display_by_line(server.external_ip_addresses.map(&:ip)) %></td>
       </tr>
     <% end %>
   </tbody>
