@@ -11,7 +11,7 @@ class ServersController < ApplicationController
   end
 
   def create
-    @server_form =ServerForm.new
+    @server_form = ServerForm.new
     @server_form.build_object(server_form_params)
 
     if @server_form.save
@@ -20,6 +20,10 @@ class ServersController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @server = Server.find(params[:id])
   end
 
   def edit

@@ -12,7 +12,7 @@
   <tbody>
     <% @servers.each do |server| %>
       <tr>
-        <td><%= server.name %></td>
+        <td><%= link_to server.name, server_path(server) %></td>
         <td><%= server.os %></td>
         <td><%= server.os_type %></td>
         <td><%= display_by_line(server.internal_ip_addresses.map(&:ip)) %></td>

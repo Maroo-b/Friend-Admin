@@ -1,0 +1,88 @@
+
+
+<%= link_to edit_server_path(@server), class: "btn-floating btn-large waves-effect waves-light red right" do %>
+  <i class="material-icons">mode_edit</i>
+<% end %>
+        
+<h5 class="center-align">Server Details</h5>
+<table class="bordered">
+  <tbody>
+    <tr>
+      <th>Name</th>
+      <td width="50%"><%= @server.name %></td>
+    </tr>
+    <tr>
+      <th>CPU</th>
+      <td><%= @server.cpu %></td>
+    </tr>
+    <tr>
+      <th>Drive</th>
+      <td><%= @server.drive %></td>
+    </tr>
+    <tr>
+      <th>RAM</th>
+      <td><%= @server.ram %></td>
+    </tr>
+    <tr>
+      <th>OS</th>
+      <td><%= @server.os %></td>
+    </tr>
+    <tr>
+      <th>OS Type</th>
+      <td><%= @server.os_type %></td>
+    </tr>
+    <tr>
+      <th>Installed Applications</th>
+      <td><%= simple_format(@server.applications) %></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="divider"></div>
+<h5 class="center-align">IP Addresses</h5>
+
+<table class="bordered">
+  <thead>
+    <tr>
+      <th>IP</th>
+      <th>Network Address</th>
+      <th>Network Mask</th>
+      <th>Gateway</th>
+      <th>Address Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @server.ip_addresses.each do |ip_address| %>
+      <tr>
+        <td><%= ip_address.ip %></td>
+        <td><%= ip_address.network_address %></td>
+        <td><%= ip_address.network_mask %></td>
+        <td><%= ip_address.gateway %></td>
+        <td><%= ip_address.address_type %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="divider"></div>
+<h5 class="center-align">Accounts</h5>
+
+<table class="bordered">
+  <thead>
+    <tr>
+      <th>Account Type</th>
+      <th>User</th>
+      <th>Password</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @server.accounts.each do |account| %>
+      <tr>
+        <td><%= account.account_type %></td>
+        <td><%= account.user %></td>
+        <td><%= account.password %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

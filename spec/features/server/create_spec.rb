@@ -16,7 +16,7 @@ RSpec.describe "Create server details", type: :feature do
     fill_in 'Network mask', with: '255.255.255.0'
     fill_in 'Network address', with: '10.0.2.0'
     fill_in 'Gateway', with: '175.48.14.55'
-    fill_in 'Address type', with: 'interne'
+    select 'internal', from: 'ip_addresses_data__address_type'
     fill_in 'Account type', with: 'System'
     fill_in 'User', with: 'John'
     fill_in 'Password', with: 'random_password'

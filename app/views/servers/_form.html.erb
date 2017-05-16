@@ -66,8 +66,9 @@
       <i class="material-icons">add_circle</i> Add Account
     </a> 
     <br>
-
-    <%= f.submit class: "waves-effect waves-light btn" %>
+    <div class="valign-wrapper">
+      <%= f.submit class: "waves-effect waves-light btn" %> <span>or <%= link_to "Cancel", servers_path %></span>
+    </div>
   </div>
 <% end %>
 
