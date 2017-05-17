@@ -11,6 +11,8 @@ module FriendAdmin
     # Initialize configuration defaults for originally generated Rails version.
     config.assets.quiet = true
 
+
+    config.eager_load_paths << Rails.root.join('lib')
     config.generators do |generate|
       generate.helper false
       generate.javascripts false

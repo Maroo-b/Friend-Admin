@@ -1,23 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe Account, type: :model do
-  describe '#encrypt_password' do
-    it 'encrypt password before saving to DB' do
+  describe 'Account callbacks' do
+    it 'trigger a callback for EncryptionWrapper' do
       server = create(:server)
       account = build(:account, password: '1234567', server_id: server.id)
+      expect_any_instance_of(EncryptionWrapper).to receive(:before_save)
+      expect_any_instance_of(EncryptionWrapper).to receive(:after_save)
       account.save
-    
-      expect(account.password).not_to eq('1234567')
     end
   end
 
-  describe '#decrypt_password' do
-    it '#decrypted password' do
-      server = create(:server)
-      account = build(:account, password: '1234567', server_id: server.id)
-      account.save
-
-      expect(server.accounts.first.password).to eq('1234567')
-    end
-  end
 end
